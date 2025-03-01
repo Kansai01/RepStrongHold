@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rep Stronghold Gym | Workout Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  
+    <div class="sidebar">
+        <h2>Rep Stronghold</h2>
+        <ul>
+            <li><a href="gymdashboard.html">🏠 Dashboard</a></li>
+            <li><a href="workouttracker.html" class="active">🏋️ Workout Tracker</a></li>
+            <li><a href="membership.html">💳 Membership Plan</a></li>
+            <li><a href="announcements.html">📢 Announcements</a></li>
+            <li><a href="training.html">📅 Trainer Schedule</a></li>
+            <li><a href="settings.html">⚙️ Settings</a></li>
+            <li><a href="login.html">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+  
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Workout Tracker</h1>
+                <div class="user-actions">
+                    <span class="username">Member</span>
+                    <button class="btn-small">New Workout</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-box">
+            <h3>Today's Workout Plan</h3>
+            <div class="workout-container">
+                <div class="workout-card">
+                    <h3>Morning Strength</h3>
+                    <p>6:00 AM - 8:00 AM</p>
+                    <p>Focus: Compound Lifts</p>
+                    <p>Trainer: Alex Davis</p>
+                    <button class="btn">View Details</button>
+                </div>
+                <div class="workout-card">
+                    <h3>Evening Power Session</h3>
+                    <p>5:00 PM - 7:00 PM</p>
+                    <p>Focus: Upper Body</p>
+                    <p>Trainer: Jamie Wilson</p>
+                    <button class="btn">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3>Weekly Progress</h3>
+            <div class="workout-container">
+                <div class="workout-card">
+                    <h3>Strength Gains</h3>
+                    <p>Bench Press: +5 lbs</p>
+                    <p>Deadlift: +10 lbs</p>
+                    <p>Squat: +15 lbs</p>
+                </div>
+                <div class="workout-card">
+                    <h3>Total Volume</h3>
+                    <p>Sets Completed: 48</p>
+                    <p>Weight Lifted: 12,500 lbs</p>
+                    <p>Workout Hours: 9.5</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3>Record New Workout</h3>
+            <form class="settings-form">
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="workout-date">Date</label>
+                        <input type="date" id="workout-date">
+                    </div>
+                    <div class="form-column">
+                        <label for="workout-duration">Duration (minutes)</label>
+                        <input type="number" id="workout-duration" min="1">
+                    </div>
+                </div>
+
+                <label for="workout-type">Workout Type</label>
+                <select id="workout-type">
+                    <option value="strength">Strength Training</option>
+                    <option value="powerlifting">Powerlifting</option>
+                    <option value="hypertrophy">Hypertrophy</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="hiit">HIIT</option>
+                </select>
+
+                <div class="exercise-section">
+                    <div class="exercise-header">
+                        <h4>Exercises</h4>
+                        <button type="button" class="btn-add">+ Add Exercise</button>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="form-row">
+                            <div class="form-column">
+                                <label for="exercise-name">Exercise Name</label>
+                                <input type="text" id="exercise-name" placeholder="e.g., Bench Press">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-column">
+                                <label for="exercise-sets">Sets</label>
+                                <input type="number" id="exercise-sets" min="1" max="20">
+                            </div>
+                            <div class="form-column">
+                                <label for="exercise-reps">Reps</label>
+                                <input type="number" id="exercise-reps" min="1" max="100">
+                            </div>
+                            <div class="form-column">
+                                <label for="exercise-weight">Weight (lbs)</label>
+                                <input type="number" id="exercise-weight" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn">Save Workout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

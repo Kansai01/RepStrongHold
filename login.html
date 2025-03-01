@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Rep Stronghold Gym</title>
+    <link rel="website Icon" href="rep.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('back.jpg') no-repeat center center/cover;
+            background-size: cover;  
+            background-attachment: fixed; 
+            background-position: center; 
+            background-color: black; 
+            animation: backgroundZoom 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes backgroundZoom {
+            0% {
+                background-position: center;
+            }
+            100% {
+                background-position: 0% 25%;
+            }
+        }
+
+        .login-container {
+            position: relative; 
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .input-group:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .input-group:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .input-group:focus-within label {
+            transform: translateY(-3px);
+            color: #e63946;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-left: 3px solid #e63946;
+            outline: none;
+            box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .login-btn {
+            background: #e63946;
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s;
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn:hover {
+            background: #ff4d5a;
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-delay: 0.8s;
+            opacity: 0;
+        }
+
+        .signup-link a {
+            color: #e63946;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #ff4d5a;
+            text-decoration: underline;
+        }
+
+        
+        .back-btn {
+            background-color: #e63946;
+            color: white;
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            animation: bounceDown 1s ease infinite alternate;
+            animation-delay: 1s;
+        }
+        
+        @keyframes bounceDown {
+            to {
+                transform: translateX(-50%) translateY(5px);
+            }
+        }
+
+        .back-btn:hover {
+            background-color: #ff4d5a;
+            transform: translateX(-50%) scale(1.05);
+            animation-play-state: paused;
+        }
+
+        
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                padding: 20px;
+            }
+            .login-container {
+                padding: 30px;
+                width: 90%;
+            }
+            .back-btn {
+                top: -50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <button onclick="goHome()" class="back-btn">⬅ Back to Home</button>
+        <script>
+            function goHome() {
+                window.location.href = "home.html"; 
+            }
+        </script>
+        
+        <h2>Login to Your Account</h2>
+        <form action="gymdashboard.html">
+            <div class="input-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" >
+            </div>
+            <script>
+                document.querySelector("form").addEventListener("submit", function(event) {
+                    event.preventDefault(); 
+                    window.location.href = "gymdashboard.html"; 
+                });
+            </script>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rep Stronghold Gym | Loading</title>
+    <link rel="website Icon" href="rep.png">
+    <style>
+        @font-face {
+            font-family: 'GodOfWar';
+            src: url('GODOFWAR.TTF') format('truetype'); 
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .logo-container {
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.7));
+            animation: rotate 3s infinite alternate;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(10deg);
+            }
+        }
+        
+        .logo-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.4) 0%, rgba(230, 57, 70, 0) 70%);
+            z-index: -1;
+            opacity: 0;
+            animation: glow 2s infinite;
+        }
+        
+        @keyframes glow {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(0.8); }
+        }
+        
+        .loading-text {
+            font-family: 'GodOfWar', sans-serif;
+            color: white;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.7);
+            letter-spacing: 2px;
+            animation: textPulse 2s infinite;
+        }
+        
+        @keyframes textPulse {
+            0% { text-shadow: 0 0 10px rgba(230, 57, 70, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(230, 57, 70, 1); }
+            100% { text-shadow: 0 0 10px rgba(230, 57, 70, 0.3); }
+        }
+        
+        .progress-container {
+            width: 300px;
+            height: 5px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #e63946, #f1faee);
+            border-radius: 10px;
+            position: relative;
+            transition: width 0.2s ease-out;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .percentage {
+            color: white;
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+        
+       
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(230, 57, 70, 0.5);
+            border-radius: 50%;
+            animation: moveParticle var(--duration) infinite linear;
+        }
+        
+        @keyframes moveParticle {
+            0% {
+                transform: translate(var(--startX), var(--startY));
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--endX), var(--endY));
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="loading-container">
+        <div class="logo-container">
+            <img src="rep.png" alt="Rep Stronghold Logo" class="logo">
+            <div class="logo-glow"></div>
+        </div>
+        
+        <div class="loading-text">REP STRONGHOLD GYM</div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="percentage" id="percentage">0%</div>
+    </div>
+
+    <script>
+ 
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 500;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            
+            const startX = Math.random() * 100 + 'vw';
+            const startY = Math.random() * 100 + 'vh';
+            const endX = Math.random() * 100 + 'vw';
+            const endY = Math.random() * 100 + 'vh';
+            const duration = Math.random() * 10 + 5 + 's';
+            
+            particle.style.setProperty('--startX', startX);
+            particle.style.setProperty('--startY', startY);
+            particle.style.setProperty('--endX', endX);
+            particle.style.setProperty('--endY', endY);
+            particle.style.setProperty('--duration', duration);
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progress-bar');
+            const percentageText = document.getElementById('percentage');
+            let progress = 0;
+            
+            function simulateLoading() {
+              
+                const totalResources = 100;
+                let loadedResources = 0;
+                
+               
+                function loadResource() {
+                   
+                    const loadTime = Math.random() * 70 + 30;
+                    
+                    setTimeout(() => {
+                        loadedResources++;
+                        progress = Math.floor((loadedResources / totalResources) * 100);
+                        
+                     
+                        progressBar.style.width = progress + '%';
+                        percentageText.textContent = progress + '%';
+                        
+                        
+                        if (loadedResources < totalResources) {
+                            loadResource();
+                        } else {
+                          
+                            setTimeout(() => {
+                                window.location.href = 'home.html';
+                            }, 500);
+                        }
+                    }, loadTime);
+                }
+                
+                
+                loadResource();
+            }
+            
+           
+            setTimeout(simulateLoading, 300);
+        });
+    </script>
+</body>
+</html>

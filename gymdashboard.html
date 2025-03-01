@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rep Stronghold Gym | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+   
+    <div class="sidebar">
+        <h2>Rep Stronghold</h2>
+        <ul>
+            <li><a href="gymdashboard.html" class="active">🏠 Dashboard</a></li>
+            <li><a href="workouttracker.html">🏋️ Workout Tracker</a></li>
+            <li><a href="membership.html">💳 Membership Plan</a></li>
+            <li><a href="announcements.html">📢 Announcements</a></li>
+            <li><a href="training.html">📅 Trainer Schedule</a></li>
+            <li><a href="settings.html">⚙️ Settings</a></li>
+            <li><a href="login.html">🚪 Logout</a></li>
+            <li class="nav-divider"></li>
+            <li><a href="home.html">🌐 Main Website</a></li>
+        </ul>
+    </div>
+
+    
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Dashboard</h1>
+                <div class="user-info">
+                    Welcome, Member
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Workouts This Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">87%</div>
+                <div class="stat-label">Attendance Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">PR's Achieved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">28</div>
+                <div class="stat-label">Days Remaining</div>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="content-box main-box">
+                <h3>Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-date">Today</div>
+                        <div class="activity-content">
+                            <h4>Upper Body Workout</h4>
+                            <p>Completed 5 exercises, 15 sets</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-date">Yesterday</div>
+                        <div class="activity-content">
+                            <h4>Rest Day</h4>
+                            <p>Recovery and stretching</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-date">Mar 01</div>
+                        <div class="activity-content">
+                            <h4>Leg Day</h4>
+                            <p>Completed 4 exercises, 12 sets</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-date">Feb 28</div>
+                        <div class="activity-content">
+                            <h4>Cardio Session</h4>
+                            <p>30 minutes, 350 calories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-box side-box">
+                <h3>Upcoming Classes</h3>
+                <div class="class-list">
+                    <div class="class-item">
+                        <div class="class-time">8:00 AM</div>
+                        <div class="class-details">
+                            <h4>Powerlifting Basics</h4>
+                            <p>with Coach Alex</p>
+                        </div>
+                    </div>
+                    <div class="class-item">
+                        <div class="class-time">12:00 PM</div>
+                        <div class="class-details">
+                            <h4>HIIT Training</h4>
+                            <p>with Coach Jamie</p>
+                        </div>
+                    </div>
+                    <div class="class-item">
+                        <div class="class-time">5:30 PM</div>
+                        <div class="class-details">
+                            <h4>Strength & Conditioning</h4>
+                            <p>with Coach Morgan</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-full">View Full Schedule</button>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3>Your Goals</h3>
+            <div class="goals-container">
+                <div class="goal-item">
+                    <div class="goal-info">
+                        <h4>Bench Press: 225 lbs</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="goal-status">75%</div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-info">
+                        <h4>Squat: 315 lbs</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="goal-status">60%</div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-info">
+                        <h4>Deadlift: 405 lbs</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <div class="goal-status">45%</div>
+                </div>
+            </div>
+            <button class="btn">Update Goals</button>
+        </div>
+    </div>
+</body>
+</html>
