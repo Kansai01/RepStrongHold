@@ -319,6 +319,12 @@
             </div>
             
             <button type="submit" class="signup-btn">Sign Up</button>
+             <script>
+                document.querySelector("form").addEventListener("submit", function(event) {
+                    event.preventDefault(); 
+                    window.location.href = "login.html"; 
+                });
+            </script>
         </form>
         <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
     </div>
